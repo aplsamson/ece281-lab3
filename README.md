@@ -26,3 +26,8 @@ env:
 
 If successful then GHDL will quietly exit with a `0` code.
 If any of the `assert` statements fail **with** `severity error` then GHDL will cease the simulation and exit with non-zero code; this will also cause the workflow to fail.
+
+## Documentation
+C3C Jake Marbach helped me to write my test functions. He did this by explaining the delay and what I was trying to assert. Then I just referenced ICE4 and some other labs.
+
+## 
