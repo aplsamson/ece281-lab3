@@ -107,20 +107,22 @@ begin
 
 	-- CONCURRENT STATEMENTS --------------------------------------------------------	
 	
-	f_S_next(0) <= (not f_S(2) and not f_S(1) and not f_S(0)) or 
+	f_S_next(0) <= (not f_S(2) and not f_S(1) and not f_S(0) and i_left and not i_right) or 
+	               (not f_S(2) and not f_S(1) and not f_S(0) and i_left and i_right) or
+	               (not f_S(2) and f_S(1) and not f_S(0)) or
 	               (f_S(2) and f_S(1) and not f_S(0));
-    f_S_next(1) <= (not f_S(2) and not f_S(1) and not f_S(0)) or
+    f_S_next(1) <= (not f_S(2) and not f_S(1) and not f_S(0) and not i_left and i_right) or
                    (not f_S(2) and f_S(1) and not f_S(0)) or
                    (f_S(2) and not f_S(1) and f_S(0)) or
                    (f_S(2) and f_S(1) and not f_S(0));
-	f_S_next(2) <= (not f_S(2) and not f_S(1) and not f_S(0)) or
+	f_S_next(2) <= (not f_S(2) and not f_S(1) and not f_S(0) and i_left and not i_right) or
 	               (not f_S(2) and f_S(1) and f_S(0)) or
 	               (f_S(2) and not f_S(1) and f_S(0)) or
 	               (f_S(2) and f_S(1) and not f_S(0));
 	
     ---------------------------------------------------------------------------------
 	
-	o_lights_L(2) <= (not f_S(2) and not f_S(1) and f_S(0)) or
+	o_lights_L(0) <= (not f_S(2) and not f_S(1) and f_S(0)) or
 	                 (f_S(2) and f_S(1) and f_S(0)) or
 	                 (f_S(2) and f_S(1) and not f_S(0)) or
 	                 (f_S(2) and not f_S(1) and f_S(0));
@@ -129,14 +131,13 @@ begin
 	                 (f_S(2) and f_S(1) and f_S(0)) or
 	                 (f_S(2) and f_S(1) and not f_S(0));
 	                 
-	o_lights_L(0) <= (not f_S(2) and not f_S(1) and f_S(0)) or
+	o_lights_L(2) <= (not f_S(2) and not f_S(1) and f_S(0)) or
 	                 (f_S(2) and f_S(1) and f_S(0));
 	                 
 	o_lights_R(2) <= (not f_S(2) and not f_S(1) and f_S(0)) or
 	                 (f_S(2) and not f_S(1) and not f_S(0));
 	                 
 	o_lights_R(1) <= (not f_S(2) and not f_S(1) and f_S(0)) or
-	                 (not f_S(2) and f_S(1) and not f_S(0)) or
 	                 (not f_S(2) and f_S(1) and f_S(0)) or
 	                 (f_S(2) and not f_S(1) and not f_S(0));
 	                 
